@@ -103,22 +103,23 @@ names(tmp1) <- c("id", "type")
 names(tmp2) <- c("id", "type")
 tmp <- rbind(tmp1, tmp2)
 nodes$"group" <- tmp[match(nodes$"id", tmp$"id"), "type"]
-nodes[1, "group"] <- "self"
+nodes[1, "group"] <- "gsDesign"
 
 edges <- df_deps[, c("from", "to")]
 
-palette <- RColorBrewer::brewer.pal(4, "Pastel1")
+palette <- c("#00857C", "#BFED33", "#FFF063", "#6ECEB2")
 
-visNetwork(nodes, edges, height = "800px", width = "100%") |>
+visNetwork(nodes, edges, height = "1200px", width = "100%") |>
   visNodes(borderWidth = 2, font = list(size = 18)) |>
   visEdges(
     arrows = list(to = list(enabled = TRUE, scaleFactor = 1)),
     smooth = list(type = "cubicBezier", roundness = 0.6)
   ) |>
-  visGroups(groupname = "self", color = palette[1], shadow = list(enabled = TRUE)) |>
+  visGroups(groupname = "gsDesign", color = palette[1], shadow = list(enabled = TRUE)) |>
   visGroups(groupname = "imports", color = palette[2], shadow = list(enabled = TRUE)) |>
   visGroups(groupname = "suggests", color = palette[3], shadow = list(enabled = TRUE)) |>
   visGroups(groupname = "depends", color = palette[4], shadow = list(enabled = TRUE)) |>
+  visLegend() |>
   visHierarchicalLayout(
     enabled = TRUE,
     direction = "UD", levelSeparation = 500,
