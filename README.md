@@ -55,3 +55,10 @@ Count lines of code, comments, and whitespaces in gsDesign.
 Distribution of the commits at each day of year from 2008 to 2022.
 
 <img src="images/commits-calendar.png" width="100%" />
+
+## Development history
+
+gsDesign: 15 years of development in 5 minutes
+
+[![Watch the
+video](https://img.youtube.com/vi/_ZUddQAhPFw/maxresdefault.jpg)](https://youtu.be/_ZUddQAhPFw)
